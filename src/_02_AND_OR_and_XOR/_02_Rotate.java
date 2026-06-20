@@ -29,10 +29,12 @@ import org.junit.jupiter.api.Test;
 public class _02_Rotate {
     
     int rotateLeft(int value, int rotateAmount) {
-    	value = value << rotateAmount;
-    	String binStr = Integer.toBinaryString(value);
-    	
-    	
+    	int newValue = (value & 0b10000000000000000000000000000000);
+    	newValue = newValue >>> 31;
+    	value = value << 1;
+    	value = (newValue | value);
+    	System.out.println(value);
+
         return value;
     }
     
